@@ -5,10 +5,50 @@
  */
 package facade;
 
+import entity.Assignment;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
 /**
  *
  * @author Bruger
  */
 public class AssignmentFacade {
+    EntityManagerFactory emf; 
+     public void addEntityManagerFactory(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
+     
+      public void addAssignment(Assignment a) {  //should propably return something
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(a);
+        em.getTransaction().commit();
+        em.close();
+    }
+       public Assignment getAssignment(int id) {
+        Assignment a;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        a = em.find(Assignment.class, id);
+        em.getTransaction().commit();
+        em.close();
+        return a;
+    }
+
+    public void updateAssignment(Assignment a) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.merge(a);
+        em.getTransaction().commit();
+        em.close();
+    }
     
+    public void deleteAssignment(Assignment a) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.remove(a);
+        em.getTransaction().commit();
+        em.close();
+    }
 }
