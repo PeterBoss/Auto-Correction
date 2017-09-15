@@ -22,9 +22,9 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private short skillLevel;  //think of better thing to call it, maybe
+    private float skillLevel;  //think of better thing to call it, maybe
 
-    public User(String name, short skillLevel) {
+    public User(String name, float skillLevel) {
         this.name = name;
         this.skillLevel = skillLevel;
     }
@@ -54,11 +54,11 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public short getSkillLevel() {
+    public float getSkillLevel() {
         return skillLevel;
     }
 
-    public void setSkillLevel(short skillLevel) {
+    public void setSkillLevel(float skillLevel) {
         this.skillLevel = skillLevel;
     }
 

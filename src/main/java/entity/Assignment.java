@@ -21,10 +21,8 @@ public class Assignment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
-        
-    
-    private short difficulty;
+
+    private float difficulty;
 
     public Integer getId() {
         return id;
@@ -34,11 +32,11 @@ public class Assignment implements Serializable {
         this.id = id;
     }
 
-    public short getDifficulty() {
+    public float getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(short difficulty) {
+    public void setDifficulty(float difficulty) {
         this.difficulty = difficulty;
     }
 

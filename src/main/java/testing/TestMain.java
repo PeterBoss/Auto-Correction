@@ -1,6 +1,8 @@
 package testing;
 
+import entity.Assignment;
 import entity.User;
+import facade.AssignmentFacade;
 import facade.UserFacade;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,11 +20,28 @@ public class TestMain {
     public static void main(String[] args) {
        // Persistence.generateSchema("myPU", null);
         UserFacade uf = new UserFacade();
-        uf.addEntityManagerFactory(emf);
+        AssignmentFacade af = new AssignmentFacade();
         TestMain tm = new TestMain();
         tm.initiateSystem();
+        uf.addEntityManagerFactory(emf);
+        af.addEntityManagerFactory(emf);
        // tm.closeSystem();
-
+       
+       User u1 = new User();
+       u1.setName("Peter Boss Thomsen");
+       u1.setSkillLevel(5.0f);
+       
+       uf.addUser(u1);
+       
+       Assignment a1 = new Assignment();
+       a1.setDifficulty(5.0f);
+       
+       af.addAssignment(a1);
+       
+       a1.setDifficulty(4.0f);
+       
+       af.updateAssignment(a1);
+       
     }
 
     public void initiateSystem() {

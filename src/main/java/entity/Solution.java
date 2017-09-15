@@ -21,7 +21,7 @@ public class Solution implements Serializable {
     @Id
     private Integer userId;
 
-    private int timeSpent;  //change datatype to something useful
+    private int timeSpent;  //change datatype to something more useful?
     private int numberOfErrors;
     private int evaluationScore;
 
