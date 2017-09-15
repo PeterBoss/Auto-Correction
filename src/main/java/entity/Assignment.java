@@ -15,13 +15,15 @@ import javax.persistence.OneToMany;
 @Entity
 public class Assignment implements Serializable {
 
-    @OneToMany(mappedBy = "assignment")
+    @OneToMany
     private List<Solution> solutions;
 
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+        
+    
     private short difficulty;
 
     public Integer getId() {
