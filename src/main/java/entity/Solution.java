@@ -26,6 +26,10 @@ public class Solution implements Serializable {
     @ManyToOne
     private User user;
 
+    public Solution() {
+    }
+    
+
     public Integer getId() {
         return id;
     }

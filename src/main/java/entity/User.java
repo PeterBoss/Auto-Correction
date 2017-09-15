@@ -25,6 +25,20 @@ public class User implements Serializable {
     private String name;
     private short skillLevel;  //think of better thing to call it, maybe
 
+    public User(String name, short skillLevel) {
+        this.name = name;
+        this.skillLevel = skillLevel;
+    }
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    public User() {
+    }
+
+    
+    
     public Integer getId() {
         return id;
     }
