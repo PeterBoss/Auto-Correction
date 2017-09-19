@@ -15,16 +15,32 @@ import javax.persistence.OneToMany;
 @Entity
 public class Assignment implements Serializable {
 
-    @OneToMany
-    private List<Solution> solutions;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+    private int id;
     private float difficulty;
 
-    public Integer getId() {
+    @OneToMany
+    private List<Solution> solutions;
+    
+    public void addSolutions(Solution solution){
+        this.solutions.add(solution);
+    }
+
+    public Assignment() {
+    }
+
+    public Assignment(float difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public Assignment(float difficulty, List<Solution> solutions) {
+        this.difficulty = difficulty;
+        this.solutions = solutions;
+    }
+    
+    
+    public int getId() {
         return id;
     }
 
